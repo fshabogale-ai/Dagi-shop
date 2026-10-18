@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Platform Admin</title>
+<style>
+  body{font-family:sans-serif;margin:0;background:#f4f6fb;color:#0b2545}
+  header{background:#0b2545;color:#fff;padding:16px;border-bottom:4px solid #f58a1f}
+  main{padding:16px;max-width:700px;margin:auto}
+  .card{background:#fff;border:1px solid #dde3f0;border-radius:12px;padding:14px;margin-bottom:12px}
+  input,button{font-size:16px;padding:10px;margin:4px 0;width:100%;box-sizing:border-box}
+  button{background:#f58a1f;color:#fff;border:0;border-radius:8px}
+  button.grey{background:#6b7a99}
+  .row{display:flex;gap:8px}
+  .tag{font-weight:bold}
+</style>
+</head>
+<body>
+<header><h2 style="margin:0">Platform Admin</h2></header>
+<main>
+  <div id="login" class="card">
+    <input id="email" type="email" placeholder="Email">
+    <input id="pass" type="password" placeholder="Password">
+    <button onclick="login()">Log in</button>
+  </div>
+  <div id="app" style="display:none">
+    <button class="grey" onclick="logout()">Log out</button>
+    <h3>All shops</h3>
+    <div id="shops"></div>
+  </div>
+  <p id="msg"></p>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.0/dist/umd/supabase.min.js"></script>
+<script>
+const SUPABASE_URL = "https://ifabdvzglzgcvzqwfeey.supabase.co";
+const SUPABASE_KEY = "sb_publishable_3rbUjyRSOZeEZ082sy5_gw_nzBb9GNW";
+const db = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+const $ = id => document.getElementById(id);
+const esc = t => String(t ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+async function login(){
+  const { error } = await db.auth.signInWithPassword({
+    email: $("email").value, password: $("pass").value });
+  if(error){ $("msg").textContent = error.message; return; }
+  start();
+}
+async function logout(){ await db.auth.signOut(); location.reload(); }
+
+async function start(){
+  const { data: { user } } = await db.auth.getUser();
+  if(!user) return;
+  const { data } = await db.from("platform_admins").select("user_id").eq("user_id", user.id);
+  if(!data || !data.length){
+    $("msg").textContent = "This account is not a platform admin.";
+    return;
+  }
+  $("login").style.display = "none";
+  $("app").style.display = "block";
+  $("msg").textContent = "";
+  load();
+}
+
+async function load(){
+  const { data, error } = await db.from("shops").select("*").order("created_at", { ascending:false });
+  if(error){ $("msg").textContent = error.message; return; }
+  $("shops").innerHTML = "";
+  data.forEach(s => {
+    const d = document.createElement("div");
+    d.className = "card";
+    d.innerHTML = `<div class="tag">${esc(s.name) || "(no name)"}</div>
+      <div>Status: ${esc(s.status)}</div>
+      <div class="row">
+        <button onclick="setStatus('${esc(s.id)}','Approved')">Approve</button>
+        <button class="grey" onclick="setStatus('${esc(s.id)}','Suspended')">Suspend</button>
+      </div>`;
+    $("shops").appendChild(d);
+  });
+}
+
+async function setStatus(id, status){
+  const { error } = await db.from("shops").update({ status }).eq("id", id);
+  if(error){ $("msg").textContent = error.message; return; }
+  load();
+}
+
+start();
+</script>
+</body>
+</html>
