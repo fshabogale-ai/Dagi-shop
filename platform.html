@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#0b2545">
+
+    <title>Platform admin | Dagi Electronics Shop</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" href="index.html">DAGI ELECTRONICS SHOP</a>
+            <bbuttontype="button" class="btn-small" id="logout-btn" hidden>Log out</button>
+        </div>
+    </header>
+
+    <main class="admin-wrap">
+
+        <p class="notice" id="notice" role="status" hidden></p>
+
+        <section class="panel" id="login-panel" hidden>
+            <h1>Platform admin login</h1>
+
+            <form id="login-form">
+                <label for="email">Email</label>
+                <input id="email" type="email" autocomplete="username" required>
+
+                <label for="password">Password</label>
+                <input id="password" type="password" autocomplete="current-password" required>
+
+                <button type="submit" class="btn btn-primary">Log in</button>
+            </form>
+        </section>
+
+        <section id="dashboard" hidden>
+
+            <div class="panel">
+                <h1>Add a shop</h1>
+                <form id="shop-form">
+                    <label for="shop-name">Shop name</label>
+                    <input id="shop-name" type="text" required>
+                    <p class="hint">Then add the owner's email on the shop card below.
+                        Create the owner's login first in Supabase, Authentication, Users.</p>
+                    <button type="submit" class="btn btn-primary">Create shop</button>
+                </form>
+            </div>
+
+            <div class="panel">
+                <h2>Shops</h2>
+                <p class="hint" id="shop-summary"></p>
+                <ul class="admin-list" id="shop-list"></ul>
+            </div>
+
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+    <script src="platform.js"></script>
+</body>
+
+</html>

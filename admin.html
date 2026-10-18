@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#0b2545">
+
+    <title>Owner dashboard | Dagi Electronics Shop</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" href="index.html">DAGI ELECTRONICS SHOP</a>
+            <button type="button" class="btn-small" id="logout-btn" hidden>Log out</button>
+        </div>
+    </header>
+
+    <main class="admin-wrap">
+
+        <p class="notice" id="notice" role="status" hidden></p>
+
+        <!-- Login -->
+        <section class="panel" id="login-panel" hidden>
+            <h1>Owner login</h1>
+
+            <form id="login-form">
+                <label for="email">Email</label>
+                <input id="email" type="email" autocomplete="username" required>
+
+                <label for="password">Password</label>
+                <input id="password" type="password" autocomplete="current-password" required>
+
+                <button type="submit" class="btn btn-primary">Log in</button>
+            </form>
+        </section>
+
+        <!-- Dashboard -->
+        <section id="dashboard" hidden>
+          <p class="notice" id="shop-status"></p>
+          
+          <div class="panel">
+              <h2>Shop settings</h2>
+              <form id="settings-form">
+                  <label for="s-name">Shop name</label>
+                  <input id="s-name" type="text" required>
+          
+                  <label for="s-whatsapp">WhatsApp number</label>
+                  <input id="s-whatsapp" type="tel" placeholder="0911223344">
+          
+                  <label for="s-telegram">Telegram username</label>
+                  <input id="s-telegram" type="text" placeholder="@yourshop">
+          
+                  <label for="s-email">Email</label>
+                  <input id="s-email" type="email">
+          
+                  <label for="s-address">Address</label>
+                  <input id="s-address" type="text">
+          
+                  <label for="s-hours">Opening hours</label>
+                  <input id="s-hours" type="text">
+          
+                  <button type="submit" class="btn btn-primary" id="settings-btn">Save settings</button>
+              </form>
+          </div>
+
+            <div class="panel">
+                <h1 id="form-title">Add a product</h1>
+
+                <form id="product-form">
+                    <label for="p-name">Name</label>
+                    <input id="p-name" type="text" required>
+
+                    <label for="p-category">Category</label>
+                    <input id="p-category" type="text" list="category-list" required
+                        placeholder="Laptops, Smartphones, Desktop Computers">
+                    <datalist id="category-list">
+                        <option value="Laptops">
+                        <option value="Smartphones">
+                        <option value="Desktop Computers">
+                    </datalist>
+
+                    <label for="p-price">Price (ETB)</label>
+                    <input id="p-price" type="number" min="0" step="1" inputmode="numeric" required>
+
+                    <label for="p-description">Description</label>
+                    <textarea id="p-description" rows="3"></textarea>
+
+                    <label for="p-specs">Specs (one per line)</label>
+                    <textarea id="p-specs" rows="4" placeholder="8 GB RAM&#10;256 GB storage"></textarea>
+
+                    <label for="p-image">Picture</label>
+                    <input id="p-image" type="file" accept="image/*">
+                    <p class="hint" id="image-hint">Choose a picture (max 2 MB).</p>
+
+                    <label class="check">
+                        <input id="p-stock" type="checkbox" checked> In stock
+                    </label>
+
+                    <label class="check">
+                        <input id="p-featured" type="checkbox"> Show "Popular" badge
+                    </label>
+
+                    <div class="form-buttons">
+                        <button type="submit" class="btn btn-primary" id="save-btn">Save product</button>
+                        <button type="button" class="btn-small" id="cancel-btn" hidden>Cancel edit</button>
+                    </div>
+                </form>
+    status  </div>
+
+            <div class="panel">
+                <h2>Your products</h2>
+                <ul class="admin-list" id="admin-list"></ul>
+            </div>
+
+        </section>
+    </main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="admin.js"></script>
+</html>

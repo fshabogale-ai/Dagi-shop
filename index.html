@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dagi Electronics Shop: laptops, smartphones and desktop computers in Ethiopia. Prices in ETB. Ask us on WhatsApp.">
+    <meta name="theme-color" content="#0b2545">
+
+    <title>Dagi Electronics Shop</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header + navigation -->
+    <header class="site-header" id="home">
+        <div class="header-inner">
+            <a class="brand" href="#home">DAGI ELECTRONICS SHOP</a>
+
+            <nav class="navigation" aria-label="Main">
+                <a href="#products">Products</a>
+                <a href="#how-to-order">How to order</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Hero: search is the first thing a customer needs -->
+        <section class="hero">
+            <h1>Find your next laptop, phone or computer.</h1>
+            <p>Quality electronics for learning, business and everyday use. Prices in ETB.</p>
+
+            <form class="search-form" role="search" onsubmit="return false">
+                <label for="search" class="visually-hidden">Search products</label>
+                <input
+                    id="search"
+                    type="search"
+                    placeholder="Search, for example Samsung"
+                    autocomplete="off">
+            </form>
+        </section>
+
+        <!-- Products -->
+        <section id="products" class="products-section">
+            <div class="section-head">
+                <h2>Our products</h2>
+
+                <div class="controls">
+                    <div class="chips" id="category-chips" role="group" aria-label="Filter by category">
+                        <!-- filled by script.js -->
+                    </div>
+
+                    <label class="sort">
+                        <span class="visually-hidden">Sort products</span>
+                        <select id="sort">
+                            <option value="default">Sort: Featured</option>
+                            <option value="low">Price: low to high</option>
+                            <option value="high">Price: high to low</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+
+            <p class="result-count" id="result-count" aria-live="polite"></p>
+
+            <div class="product-grid" id="product-grid">
+                <!-- filled by script.js -->
+            </div>
+
+            <p class="empty" id="empty" hidden>
+                No products match your search. Try another word or choose All.
+            </p>
+
+            <noscript>
+                <p class="empty">Turn on JavaScript to see the product list.</p>
+            </noscript>
+        </section>
+
+        <!-- How to order -->
+        <section id="how-to-order" class="order-section">
+            <h2>How to order</h2>
+
+            <ol class="steps">
+                <li>
+                    <strong>Choose a product.</strong>
+                    Browse the list or use the search box.
+                </li>
+                <li>
+                    <strong>Tap "Ask on WhatsApp".</strong>
+                    Your message is already written. Just send it.
+                </li>
+                <li>
+                    <strong>We confirm price and stock.</strong>
+                    We reply with availability, delivery and payment details.
+                </li>
+            </ol>
+        </section>
+
+    </main>
+
+    <!-- Footer / contact -->
+    <footer id="contact" class="site-footer">
+        <div class="footer-inner">
+            <div>
+                <h2>Contact us</h2>
+                <p>Email: <a id="contact-email" href="mailto:ermiasbogale92@gmail.com">ermiasbogale92@gmail.com</a></p>
+                <p hidden>Opening hours: <span id="contact-hours"></span></p>
+                <p hidden>Address: <span id="contact-address"></span></p>
+            </div>
+
+            <div class="footer-actions">
+                <a class="btn btn-whatsapp" id="footer-whatsapp" href="#" target="_blank" rel="noopener">
+                    Chat on WhatsApp
+                </a>
+                <a class="btn btn-telegram" id="footer-telegram" href="#" target="_blank" rel="noopener" hidden>
+                    Telegram
+                </a>
+            </div>
+
+        <p class="copyright">&copy; 2026 Dagi Electronics Shop</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
