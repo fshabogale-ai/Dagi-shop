@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#0b2545">
+
+    <title>Backup | Dagi Electronics Shop</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" href="index.html">DAGI ELECTRONICS SHOP</a>
+            <button type="button" class="btn-small" id="logout-btn" hidden>Log out</button>
+        </div>
+    </header>
+
+    <main class="admin-wrap">
+
+        <p class="notice" id="notice" role="status" hidden></p>
+
+        <section class="panel" id="login-panel" hidden>
+            <h1>Platform admin login</h1>
+
+            <form id="login-form">
+                <label for="email">Email</label>
+                <input id="email" type="email" autocomplete="username" required>
+
+                <label for="password">Password</label>
+                <input id="password" type="password" autocomplete="current-password" required>
+
+                <button type="submit" class="btn btn-primary">Log in</button>
+            </form>
+        </section>
+
+        <section id="dashboard" hidden>
+            <div class="panel">
+                <h1>Download a backup</h1>
+                <p class="hint">One file with all your shops, products, owners, reports and
+                    settings. Save it in a safe place, like Google Drive.</p>
+                <button type="button" class="btn btn-primary" id="backup-all">Download full backup (JSON)</button>
+            </div>
+
+            <div class="panel">
+                <h2>Single tables (CSV)</h2>
+                <p class="hint">Open these in Excel or Google Sheets.</p>
+                <ul class="admin-list" id="table-list"></ul>
+            </div>
+
+            <div class="panel">
+                <h2>Pictures</h2>
+                <p class="hint">The backup keeps each picture's link, but the picture files stay in
+                    Supabase Storage. Keep the original pictures on your phone or Google Drive too.</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+    <script src="backup.js"></script>
+</body>
+
+</html>
