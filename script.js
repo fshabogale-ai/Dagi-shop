@@ -20,8 +20,8 @@ const CONFIG = {
     hours: "",
 
     // Supabase: Project Settings > API. Leave empty to use the local list below.
-    supabaseUrl: "",      // example: https://abcdxyz.supabase.co
-    supabaseKey: ""       // the "anon public" key (never the service_role key)
+    supabaseUrl: "https://ifabdvzglzgcvzqwfeey.supabase.co",      // example: https://abcdxyz.supabase.co
+    supabaseKey: "sb_publishable_3rbUjyRSOZeEZ082sy5_gw_nzBb9GNW"       // the "anon public" key (never the service_role key)
 };
 
 /* ---------- 2) PRODUCTS ---------- */
