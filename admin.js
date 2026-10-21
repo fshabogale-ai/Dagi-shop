@@ -3,8 +3,8 @@
    Paste the SAME two values you used in script.js.
    ========================================================= */
 const CONFIG = {
-    supabaseUrl: "",   // example: https://abcdxyz.supabase.co
-    supabaseKey: ""    // the "anon public" key
+    supabaseUrl: "https://ifabdvzglzgcvzqwfeey.supabase.co",   // example: https://abcdxyz.supabase.co
+    supabaseKey: "sb_publishable_3rbUjyRSOZeEZ082sy5_gw_nzBb9GNW "    // the "anon public" key
 };
 
 const BUCKET = "product-images";
