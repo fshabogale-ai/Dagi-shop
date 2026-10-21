@@ -1,0 +1,204 @@
+/* Extra styles for admin.html (loaded after style.css) */
+
+.admin-wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 3rem;
+}
+
+.panel {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.panel h1,
+.panel h2 {
+    font-size: 1.3rem;
+    color: var(--navy);
+}
+
+.panel form {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.panel label {
+    font-weight: 600;
+    font-size: 0.92rem;
+    margin-top: 0.4rem;
+}
+
+.panel input[type="text"],
+.panel input[type="email"],
+.panel input[type="tel"],
+.panel input[type="password"],
+.panel input[type="number"],
+.panel input[type="file"],
+.panel textarea {
+    width: 100%;
+    font: inherit;
+    padding: 0.7rem 0.8rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--white);
+    color: var(--ink);
+}
+
+.panel label.check {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 500;
+}
+
+.panel input[type="checkbox"] {
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.switch-line {
+    margin-top: 1rem !important;
+}
+
+.link-btn {
+    font: inherit;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--orange-dark);
+    font-weight: 700;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.hint {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+
+.btn-primary {
+    background: var(--orange);
+    color: var(--navy);
+    border: 0;
+    font: inherit;
+    font-weight: 800;
+    cursor: pointer;
+    margin-top: 0.75rem;
+}
+
+.btn-primary:hover {
+    background: var(--yellow);
+}
+
+.btn-primary:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.btn-small {
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.45rem 0.9rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--white);
+    color: var(--navy);
+    cursor: pointer;
+}
+
+.btn-small:hover {
+    border-color: var(--orange);
+}
+
+.btn-danger {
+    color: #b42318;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.notice {
+    padding: 0.8rem 1rem;
+    border-radius: var(--radius);
+    background: #e8f5ee;
+    color: #14663a;
+    font-weight: 600;
+}
+
+.notice.error {
+    background: #fdecea;
+    color: #b42318;
+}
+
+.admin-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.75rem;
+}
+
+.admin-item {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 0.75rem;
+    align-items: center;
+    padding: 0.75rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+}
+
+.admin-item img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    background: #e9eef6;
+    border-radius: 8px;
+}
+
+.admin-item strong {
+    display: block;
+    color: var(--navy);
+}
+
+.admin-item .meta {
+    font-size: 0.88rem;
+    color: var(--muted);
+}
+
+.shop-item {
+    grid-template-columns: 1fr;
+}
+
+.shop-item .meta {
+    display: block;
+}
+
+.owner-row {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.owner-row input {
+    flex: 1;
+    min-width: 0;
+    font: inherit;
+    padding: 0.5rem 0.7rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+}
+
+.admin-actions {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 0.5rem;
+}
